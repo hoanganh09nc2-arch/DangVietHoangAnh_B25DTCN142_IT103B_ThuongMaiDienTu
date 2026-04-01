@@ -42,7 +42,7 @@
 
         <div class="page-header">
           <h1 class="page-title">Danh mục</h1>
-          <button class="btn-add" onclick="openModal()">Thêm mới danh mục</button>
+          <button class="btn-add" onclick="renderFormAdd()">Thêm mới danh mục</button>
         </div>
 
         <div class="filters">
@@ -77,7 +77,7 @@
               <td><span class="badge badge-active">● Đang hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -86,7 +86,7 @@
               <td><span class="badge badge-inactive">● Ngừng hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -95,7 +95,7 @@
               <td><span class="badge badge-active">● Đang hoạt động</span></td>
               <td class="actions">
                <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -104,8 +104,7 @@
               <td><span class="badge badge-inactive">● Ngừng hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
-              </td>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
             </tr>
             <tr>
               <td>DM005</td>
@@ -113,7 +112,7 @@
               <td><span class="badge badge-inactive">● Ngừng hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -122,7 +121,7 @@
               <td><span class="badge badge-inactive">● Ngừng hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -131,7 +130,7 @@
               <td><span class="badge badge-active">● Đang hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
             <tr>
@@ -140,7 +139,7 @@
               <td><span class="badge badge-inactive">● Ngừng hoạt động</span></td>
               <td class="actions">
                 <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></i></button>
+                <button class="btn-edit" onclick="renderFormUp()"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
           </tbody>
@@ -164,102 +163,70 @@
     </div>
   </div>
 
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
-  <div class="modal" id="modal">
+    <div class="modal-overlay " id="modalOverlay">
+  <div class="modal">
     <div class="modal-header">
       <h2 class="modal-title">Thêm mới danh mục</h2>
-      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close" id="modalClose" onclick="closeFormAdd()">✕</button>
     </div>
+
     <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">Mã danh mục <span class="required">*</span></label>
-        <input type="text" class="form-input" placeholder="" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Tên danh mục <span class="required">*</span></label>
-        <input type="text" class="form-input" placeholder="" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Trạng thái</label>
-        <div class="radio-group">
-          <label class="radio-label">
-            <input type="radio" name="status" value="active" checked />
-            <span>Đang hoạt động</span>
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="status" value="inactive" />
-            <span>Ngừng hoạt động</span>
-          </label>
-        </div>
+      <label class="form-label">Mã danh mục <span class="required">*</span></label>
+      <input type="text" class="form-input" placeholder="" />
+
+      <label class="form-label">Tên danh mục <span class="required">*</span></label>
+      <input type="text" class="form-input" placeholder="" />
+
+      <label class="form-label">Trạng thái</label>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="status" checked /> Đang hoạt động
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="status" /> Ngừng hoạt động
+        </label>
       </div>
     </div>
+
     <div class="modal-footer">
-      <button class="btn-cancel" onclick="closeModal()">Hủy</button>
+      <button class="btn-cancel" id="btnCancel" onclick="closeFormAdd()">Hủy</button>
       <button class="btn-submit">Thêm</button>
     </div>
   </div>
-
-  <div class="modal" id="modalEdit">
+</div>
+<div class="modal-overlay-up " id="modalOverlay-up">
+  <div class="modal">
     <div class="modal-header">
       <h2 class="modal-title">Cập nhật danh mục</h2>
-      <button class="modal-close" onclick="closeModalEdit()"><i class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close" id="modalClose" onclick="closeFormUp()">✕</button>
     </div>
+
     <div class="modal-body">
-      <div class="form-group">
-        <label class="form-label">Mã danh mục <span class="required">*</span></label>
-        <input type="text" class="form-input" id="editMa" placeholder="DM001" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Tên danh mục <span class="required">*</span></label>
-        <input type="text" class="form-input" id="editTen" placeholder="Quần áo" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Trạng thái</label>
-        <div class="radio-group">
-          <label class="radio-label">
-            <input type="radio" name="editStatus" value="active" checked />
-            <span>Đang hoạt động</span>
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="editStatus" value="inactive" />
-            <span>Ngừng hoạt động</span>
-          </label>
-        </div>
+      <label class="form-label">Mã danh mục <span class="required">*</span></label>
+      <input type="text" class="form-input" placeholder="" />
+
+      <label class="form-label">Tên danh mục <span class="required">*</span></label>
+      <input type="text" class="form-input" placeholder="" />
+
+      <label class="form-label">Trạng thái</label>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="status" checked /> Đang hoạt động
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="status" /> Ngừng hoạt động
+        </label>
       </div>
     </div>
+
     <div class="modal-footer">
-      <button class="btn-cancel" onclick="closeModalEdit()">Hủy</button>
-      <button class="btn-submit">Lưu</button>
+      <button class="btn-cancel" id="btnCancel" onclick="closeFormUp()">Hủy</button>
+      <button class="btn-submit">Thêm</button>
     </div>
   </div>
+</div>
 
-
-
-  <script>
-    function openModal() {
-      document.getElementById('modal').classList.add('active');
-      document.getElementById('modalOverlay').classList.add('active');
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-      document.getElementById('modalOverlay').classList.remove('active');
-    }
-
-    function openModalEdit(id, name, status) {
-    document.getElementById('editMa').value = id;
-    document.getElementById('editTen').value = name;
-    const radios = document.querySelectorAll('input[name="editStatus"]');
-    radios.forEach(r => r.checked = (r.value === status));
-    document.getElementById('modalEdit').classList.add('active');
-    document.getElementById('modalOverlay').classList.add('active');
-    }
-
-    function closeModalEdit() {
-      document.getElementById('modalEdit').classList.remove('active');
-      document.getElementById('modalOverlay').classList.remove('active');
-    }
-  </script>
-
+<script src="../js/category-manager.js"></script>
 
 </body>
 </html>
