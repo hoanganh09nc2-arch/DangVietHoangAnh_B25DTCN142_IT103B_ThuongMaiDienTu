@@ -17,13 +17,13 @@
         <span class="logo-text">Ecommerce</span>
       </div>
       <nav class="sidebar__nav">
-        <a href="#" class="nav-item">
+        <a href="../pages/statistical-manager.html" class="nav-item" id="statistical">
           <span class="nav-icon"><i class="fa-solid fa-house"></i></span> Thống kê
         </a>
-        <a href="#" class="nav-item nav-item--active">
+        <a href="#" class="nav-item nav-item--active" id="category">
           <span class="nav-icon"><i class="fa-solid fa-camera"></i></span> Danh mục
         </a>
-        <a href="#" class="nav-item">
+        <a href="../pages/product-manager.html" class="nav-item" id="product">
           <span class="nav-icon"><i class="fa-regular fa-folder"></i></span> Sản phẩm
         </a>
       </nav>
@@ -33,8 +33,8 @@
 
       <header class="topbar">
         <div class="topbar_right">
-          <span class="topbar_bell"><i class="fa-solid fa-bell"></i></span>
-          <img class="topbar_avatar" src="" alt="avatar" />
+          <span class="topbar_bell"><img src="../assets/icons/Bell.png" alt=""></span>
+          <img class="topbar_avatar" src="../assets/images/10d5c319419f2137bf8772f28aaf576b74a68518 (1).png" alt="avatar" />
         </div>
       </header>
 
@@ -42,18 +42,22 @@
 
         <div class="page-header">
           <h1 class="page-title">Danh mục</h1>
-          <button class="btn-add">+ Thêm mới danh mục</button>
+          <button class="btn-add" onclick="openModal()">Thêm mới danh mục</button>
         </div>
 
         <div class="filters">
           <select class="select-filter">
-            <option>Đang hoạt động</option>
+            <option class="text-option">Đang hoạt động</option>
             <option>Ngừng hoạt động</option>
             <option>Tất cả</option>
           </select>
           <div class="search-wrap">
-            <input type="text" class="search-input" placeholder="Tìm kiếm danh mục theo tên" />
-            <span class="search-icon">🔍</span>
+            <div class="search">
+              <input type="text" class="search-input" placeholder="Tìm kiếm danh mục theo tên "/>
+            </div>
+            <div class="search-shape">
+              <img src="../assets/icons/Shape.png" alt="">
+            </div>
           </div>
         </div>
 
@@ -159,6 +163,103 @@
       </div>
     </div>
   </div>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">Thêm mới danh mục</h2>
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Mã danh mục <span class="required">*</span></label>
+        <input type="text" class="form-input" placeholder="" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tên danh mục <span class="required">*</span></label>
+        <input type="text" class="form-input" placeholder="" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Trạng thái</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="status" value="active" checked />
+            <span>Đang hoạt động</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="status" value="inactive" />
+            <span>Ngừng hoạt động</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Hủy</button>
+      <button class="btn-submit">Thêm</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalEdit">
+    <div class="modal-header">
+      <h2 class="modal-title">Cập nhật danh mục</h2>
+      <button class="modal-close" onclick="closeModalEdit()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Mã danh mục <span class="required">*</span></label>
+        <input type="text" class="form-input" id="editMa" placeholder="DM001" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tên danh mục <span class="required">*</span></label>
+        <input type="text" class="form-input" id="editTen" placeholder="Quần áo" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Trạng thái</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="editStatus" value="active" checked />
+            <span>Đang hoạt động</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="editStatus" value="inactive" />
+            <span>Ngừng hoạt động</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModalEdit()">Hủy</button>
+      <button class="btn-submit">Lưu</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').classList.add('active');
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    function openModalEdit(id, name, status) {
+    document.getElementById('editMa').value = id;
+    document.getElementById('editTen').value = name;
+    const radios = document.querySelectorAll('input[name="editStatus"]');
+    radios.forEach(r => r.checked = (r.value === status));
+    document.getElementById('modalEdit').classList.add('active');
+    document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModalEdit() {
+      document.getElementById('modalEdit').classList.remove('active');
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+  </script>
+
 
 </body>
 </html>

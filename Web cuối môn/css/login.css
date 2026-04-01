@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #F8FAFC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,24 +15,23 @@ body {
 }
 
 .login-container {
-    background: white;
+    background: #F8FAFC;
     width: 100%;
     max-width: 420px;
     padding: 40px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
 }
 
 h1 {
     font-size: 32px;
-    color: #1f2937;
-    margin-bottom: 8px;
+    color: #090914;
+    margin-bottom: 16px;
     text-align: left;
 }
 
 .subtitle {
-    color: #6b7280;
+    color: #52525B;
     font-size: 15px;
     margin-bottom: 35px;
     text-align: left;
@@ -46,7 +45,7 @@ h1 {
 label {
     display: block;
     margin-bottom: 6px;
-    color: #374151;
+    color: #090914;
     font-size: 14px;
     font-weight: 500;
 }
@@ -55,17 +54,17 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
     font-size: 15px;
     outline: none;
     transition: all 0.3s;
+    background-color: #F8FAFC;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: #2563EB;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .options {
@@ -117,13 +116,13 @@ button:hover {
 .register-link {
     margin-top: 30px;
     font-size: 14px;
-    color: #6b7280;
+    color: #64748B;
 }
 
 .register-link a {
-    color: #2563EB;
+    color: #007AFF;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .register-link a:hover {
@@ -134,5 +133,18 @@ button:hover {
 @media (max-width: 480px) {
     .login-container {
         padding: 30px 20px;
+    }
+
+    body {
+        background: #ffffff;
+    }
+
+    .login-container {
+        background: #ffffff;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        background-color: #ffffff;
     }
 }
