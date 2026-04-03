@@ -142,3 +142,18 @@ button:hover {
         gap: 20px;
     }
 }
+
+input.validate {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
+
+.error.show {
+    display: block;
+}
