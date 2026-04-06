@@ -157,3 +157,27 @@ input.validate {
 .error.show {
     display: block;
 }
+
+/* Toast message*/
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #10B981; /* Màu xanh lá thành công */
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

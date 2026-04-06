@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quản lý danh mục</title>
+  <title>Quản lý thống kê</title>
   <link rel="stylesheet" href="../css/statistical-manager.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -33,20 +33,34 @@
 
             <header class="topbar">
                 <div class="topbar_right">
-                <span class="topbar_bell"><img src="../assets/icons/Bell.png" alt=""></span>
-                <img class="topbar_avatar" src="../assets/images/10d5c319419f2137bf8772f28aaf576b74a68518 (1).png" alt="avatar" />
+                    <span class="topbar_bell"><img src="../assets/icons/Bell.png" alt="Thông báo"></span>
+                    
+                    <!-- Avatar với dropdown -->
+                    <div class="avatar-wrapper">
+                        <img id="avatarTrigger" 
+                             class="topbar_avatar" 
+                             src="../assets/images/10d5c319419f2137bf8772f28aaf576b74a68518 (1).png" 
+                             alt="avatar" />
+                        
+                        <!-- Menu đăng xuất -->
+                        <div id="logoutMenu" class="logout-menu">
+                            <a href="#" id="btnLogout" class="logout-item">
+                                <span class="logout-icon"><img src="../assets/icons/logout.png" alt=""></span>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
             <div class="content">
-
                 <div class="page-header">
                     <h1 class="page-title">Thống kê</h1>
                 </div>
-
             </div>    
         </div>
-
     </div>
+
+    <script src="../js/statistical-manager.js"></script>
 </body>
 </html>

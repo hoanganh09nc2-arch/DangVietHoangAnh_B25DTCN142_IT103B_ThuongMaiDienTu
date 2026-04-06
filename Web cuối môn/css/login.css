@@ -1,150 +1,173 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F8FAFC;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f7fafc;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
 }
 
-.login-container {
-    background: #F8FAFC;
-    width: 100%;
-    max-width: 420px;
-    padding: 40px 30px;
-    border-radius: 8px;
-    text-align: center;
+.card {
+  background-color: #f7fafc;
+  border-radius: 18px;
+  padding: 48px 52px 44px;
+  width: 100%;
+  max-width: 560px;
 }
 
-h1 {
-    font-size: 32px;
-    color: #090914;
-    margin-bottom: 16px;
-    text-align: left;
+.card__title {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.subtitle {
-    color: #52525B;
-    font-size: 15px;
-    margin-bottom: 35px;
-    text-align: left;
+.card__subtitle {
+  font-size: 18px;
+  color: #52525B;
+  margin-bottom: 36px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 label {
-    display: block;
-    margin-bottom: 6px;
-    color: #090914;
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 7px;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #CBD5E1;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2563EB;
+}
+
+.row-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-wrap input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.checkbox-wrap span {
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.row-options > a {
+  font-size: 14px;
+  color: #2563EB;
+  text-decoration: none;
+}
+
+.row-options > a:hover {
+  text-decoration: underline;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background-color: #2563EB;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #1D4ED8;
+}
+
+.card__footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.card__footer a {
+  color: #2563EB;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card__footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 450px) {
+  body {
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .card {
     border-radius: 12px;
-    font-size: 15px;
-    outline: none;
-    transition: all 0.3s;
-    background-color: #F8FAFC;
+    padding: 32px 20px;
+    margin: 16px;
+  }
+
+  .card__title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .card__subtitle {
+    text-align: center;
+  }
+}
+input:focus {
+  border-color: #2563EB;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border-color: #2563EB;
+input.invalid {
+  border-color: #EF4444;
 }
 
-.options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    font-size: 14px;
+.error-msg {
+  font-size: 12px;
+  color: #EF4444;
+  margin-top: 5px;
+  display: none;
 }
 
-.remember {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.remember input[type="checkbox"] {
-    width: 17px;
-    height: 17px;
-    accent-color: #2563EB;
-}
-
-.forgot {
-    color: #2563EB;
-    text-decoration: none;
-}
-
-.forgot:hover {
-    text-decoration: underline;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #2563EB;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #1d4ed8;
-}
-
-.register-link {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #64748B;
-}
-
-.register-link a {
-    color: #007AFF;
-    text-decoration: none;
-    font-weight: 400;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .login-container {
-        padding: 30px 20px;
-    }
-
-    body {
-        background: #ffffff;
-    }
-
-    .login-container {
-        background: #ffffff;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-        background-color: #ffffff;
-    }
+.error-msg.show {
+  display: block;
 }
