@@ -113,6 +113,7 @@ body {
 }
 
 /* Đăng xuất */
+/* ================== ĐĂNG XUẤT - MENU DROPDOWN ================== */
 .avatar-wrapper {
     position: relative;
     display: inline-block;
@@ -124,12 +125,14 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-right: 11px;           /* giữ nguyên như cũ */
 }
 
 .topbar_avatar:hover {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
+/* Menu logout */
 .logout-menu {
     position: absolute;
     top: 48px;
@@ -139,6 +142,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     min-width: 160px;
+    padding: 6px 0;                    /* thêm padding cho đẹp */
+    
+    /* Trạng thái ẩn */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -146,13 +152,15 @@ body {
     z-index: 1000;
 }
 
+/* Trạng thái hiện */
 .logout-menu.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.logout-item {
+/* Style cho từng item trong menu */
+.logout-menu a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -160,11 +168,10 @@ body {
     color: #374151;
     text-decoration: none;
     font-size: 14px;
-    border-radius: 6px;
     transition: all 0.2s;
 }
 
-.logout-item:hover {
+.logout-menu a:hover {
     background-color: #F3F4F6;
     color: #EF4444;
 }

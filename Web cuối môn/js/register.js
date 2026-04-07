@@ -30,7 +30,7 @@ function addInfor(e) {
 
     setTimeout(() => {
         window.location.href = "login.html"
-    }, 1800)
+    }, 1500)
 }
 
 function validateRegister() {

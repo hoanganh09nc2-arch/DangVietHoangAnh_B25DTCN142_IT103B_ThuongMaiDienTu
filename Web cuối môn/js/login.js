@@ -1,3 +1,6 @@
+if (localStorage.getItem("isLoggedIn") === "true") {
+  window.location.href = "statistical-manager.html";
+}
 let emailLogin = document.getElementById("email");
 let passwordLogin = document.getElementById("password");
 let loginForm = document.getElementById("login");
@@ -34,14 +37,18 @@ function checkLogin(e) {
     );
 
     if (foundUser) {
-        window.location.href = "statistical-manager.html";
+        setTimeout(() => {
+            localStorage.setItem("isLoggedIn", "true");
+            window.location.href = "statistical-manager.html"
+        }, 1500)
     } else {
-        showError(emailLogin, "emailErr", "Email hoặc mật khẩu không đúng");
         showError(passwordLogin, "passwordErr", "Email hoặc mật khẩu không đúng");
     }
+
+    
 }
 
-function showError(valueInput, errorId, message = "") {
+function showError(valueInput, errorId, message) {
     valueInput.classList.add("validate");
     let valueError = document.getElementById(errorId);
     if (message) valueError.textContent = message;
@@ -52,4 +59,9 @@ function clearError(valueInput, errorId) {
     valueInput.classList.remove("validate");
     let valueError = document.getElementById(errorId);
     valueError.classList.remove("show");
+}
+
+function showSuccessToast() {
+    let toast = document.getElementById("toast-message");
+    toast.classList.add("show");
 }
